@@ -3,10 +3,15 @@ import { IconButton, Stack, Typography } from '@mui/material'
 import { useState } from 'react'
 import './App.css'
 import Timer from './components/Timer'
+import { DEFAULT_BREAK_MINS, DEFAULT_SESSION_MINS } from './components/constants'
 
 function App() {
-  const [breakMins, setBreakMins] = useState(5);
-  const [sessionMins, setSessionMins] = useState(25);
+  const [sessionMins, setSessionMins] = useState(DEFAULT_SESSION_MINS);
+  const [breakMins, setBreakMins] = useState(DEFAULT_BREAK_MINS);
+
+  const handleBreakMinsChange = (newBreakMins: number) => {
+    setBreakMins(newBreakMins);
+  };
 
   const handleBreakDecrease = () => {
     if (breakMins > 1)
@@ -14,7 +19,12 @@ function App() {
   };
 
   const handleBreakIncrease = () => {
-    setBreakMins(breakMins + 1);
+    if (breakMins < 60)
+      setBreakMins(breakMins + 1);
+  };
+
+  const handleSessionMinsChange = (newSessionMins: number) => {
+    setSessionMins(newSessionMins);
   };
 
   const handleSessionDecrease = () => {
@@ -23,7 +33,8 @@ function App() {
   };
 
   const handleSessionIncrease = () => {
-    setSessionMins(sessionMins + 1);
+    if (sessionMins < 60)
+      setSessionMins(sessionMins + 1);
   };
 
   return (
@@ -85,7 +96,7 @@ function App() {
           </Stack>
         </Stack>
       </Stack>
-      <Timer sessionMins={sessionMins} breakMins={breakMins} />
+      <Timer sessionMins={sessionMins} breakMins={breakMins} setSessionMins={handleSessionMinsChange} setBreakMins={handleBreakMinsChange} />
     </Stack>
   )
 }
