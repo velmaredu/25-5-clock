@@ -38,11 +38,11 @@ function App() {
   };
 
   return (
-    <Stack direction={'column'} gap={6}>
+    <Stack direction={'column'} gap={{ xs: 2, default: 6 }} sx={{ height: '100%' }} justifyContent={'center'}>
       <Typography variant='h2' fontWeight={'bold'}>
         25 + 5 Clock
       </Typography>
-      <Stack direction={'row'} gap={6}>
+      <Stack direction={'row'} gap={{ xs: 2, default: 6 }} flexWrap={'wrap'} justifyContent={'center'}>
         <Stack direction={'column'} gap={3}>
           <Typography id='break-label' variant='h3'>
             Break Length

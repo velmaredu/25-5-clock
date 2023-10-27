@@ -106,16 +106,19 @@ function Timer(props: CounterProps) {
     }
 
     return (
-        <Stack direction={"column"} gap={2}>
-            <Typography id='timer-label'
-                variant='h2'>
-                {isSession.current ? "Session" : "Break"}
-            </Typography>
-            <Typography
-                id="time-left"
-                variant="h2">
-                {formatTimer(minutes, seconds)}
-            </Typography>
+        <Stack direction={"column"} gap={2} alignItems={'center'}>
+            <Stack id='timer-block' sx={{ display: 'inline', padding: 2 }} gap={1}>
+                <Typography id='timer-label'
+                    variant='h3'
+                    marginInline={1}>
+                    {isSession.current ? "Session" : "Break"}
+                </Typography>
+                <Typography
+                    id="time-left"
+                    variant="h1">
+                    {formatTimer(minutes, seconds)}
+                </Typography>
+            </Stack>
             <audio id='beep' src={beep} />
             <Stack direction={'row'} justifyContent={'center'} gap={3}>
                 <IconButton id="start_stop" color="inherit" onClick={toggleTimer}>
