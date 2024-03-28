@@ -6,39 +6,39 @@ import Timer from './components/Timer'
 import { DEFAULT_BREAK_MINS, DEFAULT_SESSION_MINS } from './components/constants'
 
 function App() {
-  const [sessionMins, setSessionMins] = useState(DEFAULT_SESSION_MINS);
-  const [breakMins, setBreakMins] = useState(DEFAULT_BREAK_MINS);
+  const [sessionMins, setSessionMins] = useState(DEFAULT_SESSION_MINS)
+  const [breakMins, setBreakMins] = useState(DEFAULT_BREAK_MINS)
 
   const handleBreakMinsChange = (newBreakMins: number) => {
-    setBreakMins(newBreakMins);
-  };
+    setBreakMins(newBreakMins)
+  }
 
   const handleBreakDecrease = () => {
     if (breakMins > 1)
-      setBreakMins(breakMins - 1);
-  };
+      setBreakMins(breakMins - 1)
+  }
 
   const handleBreakIncrease = () => {
     if (breakMins < 60)
-      setBreakMins(breakMins + 1);
-  };
+      setBreakMins(breakMins + 1)
+  }
 
   const handleSessionMinsChange = (newSessionMins: number) => {
-    setSessionMins(newSessionMins);
-  };
+    setSessionMins(newSessionMins)
+  }
 
   const handleSessionDecrease = () => {
     if (sessionMins > 1)
-      setSessionMins(sessionMins - 1);
-  };
+      setSessionMins(sessionMins - 1)
+  }
 
   const handleSessionIncrease = () => {
     if (sessionMins < 60)
-      setSessionMins(sessionMins + 1);
-  };
+      setSessionMins(sessionMins + 1)
+  }
 
   return (
-    <Stack direction={'column'} gap={{ xs: 2, md: 6 }} sx={{ height: '100%' }} justifyContent={'center'}>
+    <Stack direction={'column'} gap={{ xs: 2, md: 6 }} sx={{ minHeight: '100vh' }} justifyContent={'center'}>
       <Typography variant='h2' fontWeight={'bold'}>
         25 + 5 Clock
       </Typography>
